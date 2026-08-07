@@ -12,4 +12,9 @@ window.addEventListener('scroll', () => { const max = document.documentElement.s
 top.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
 const observer = new IntersectionObserver(entries => entries.forEach(x => x.isIntersecting && x.target.classList.add('show')), {threshold:.12});
 document.querySelectorAll('.section, .reveal').forEach(x => observer.observe(x));
-document.querySelector('.menu').addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('open'));
+function toggleMobileMenu() {
+    var navLinks = document.getElementById('nav-links');
+    if (navLinks) {
+        navLinks.classList.toggle('active');
+    }
+}
